@@ -1,0 +1,26 @@
+<%= simple_form_for @workout, html: { multipart: true } do |f| %>
+  <% if @workout.errors.any? %>
+    <div id="errors">
+      <p>
+        <%= @workout.errors.count %>
+        Prevented this workout from saving
+      </p>
+      <ul>
+        <% @workout.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="panel-body">
+    <%= f.input :workout, input_html: { class: 'form-control' } %>
+    <%= f.input :description, input_html: { class: 'form-control' } %>
+    <%= f.input :location, input_html: { class: 'form-control' } %>
+    <%= f.input :duration, input_html: { class: 'form-control' } %>
+    <%= f.input :mood, input_html: { class: 'form-control' } %>
+
+
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
