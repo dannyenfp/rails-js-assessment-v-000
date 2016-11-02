@@ -14,18 +14,17 @@
       </ul>
     </div>
   <% end %>
+
   <div class="panel-body">
     <%= f.input :workout, input_html: { class: 'form-control' } %>
-    <%= f.input :description, input_html: { class: 'form-control' } %>
-    <%= f.input :location, input_html: { class: 'form-control' } %>
     <%= f.input :duration, input_html: { class: 'form-control' } %>
+    <%= f.input :location, input_html: { class: 'form-control' } %>
     <%= f.input :mood, input_html: { class: 'form-control' } %>
     <%= f.input :image, input_html: { class: 'form-control' } %>
-
     <div class="row">
       <div class="col-md-6">
         <h3>Exercises</h3>
-        <div id="exercises">
+        <div id="Exercises">
           <%= f.simple_fields_for :exercises do |exercise| %>
             <%= render 'exercise_fields', f: exercise %>
           <% end %>
@@ -41,7 +40,7 @@
             <%= render 'direction_fields', f: direction %>
           <% end %>
           <div class="links">
-            <%= link_to_add_association 'Add description', f, :directions, class: "btn btn-default add-button" %>
+            <%= link_to_add_association 'Add Description', f, :directions, class: "btn btn-default add-button" %>
           </div>
         </div>
       </div>

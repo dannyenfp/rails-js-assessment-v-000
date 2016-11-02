@@ -1,6 +1,6 @@
 class WorkoutsController < ApplicationController
   before_action :find_workout, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @workouts = Workout.all.order("created_at DESC")
@@ -10,11 +10,11 @@ class WorkoutsController < ApplicationController
   end
 
   def new
-    @workout = Workout.new
+    @workout = current_user.workouts.build
   end
 
   def create
-    @workout = Workout.new(workout_params)
+    @workout = current_user.workouts.build(workout_params)
     if @workout.save
       redirect_to @workout, notice: "Successfully created new workout"
     else
@@ -42,7 +42,7 @@ class WorkoutsController < ApplicationController
 
   def workout_params
     params.require(:workout).permit(:date, :workout, :duration, :location, :mood, :image,
-      exercise_attributes: [:id, :name, :_destroy], 
+      exercises_attributes: [:id, :name, :_destroy], 
       directions_attributes: [:id, :description, :_destroy])
   end
 

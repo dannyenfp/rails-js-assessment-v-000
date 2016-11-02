@@ -25,6 +25,7 @@ gem 'cocoon'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
 gem 'paperclip'
+gem 'devise'
   
 gem 'simple_form'
 # Use Redis adapter to run Action Cable in production
