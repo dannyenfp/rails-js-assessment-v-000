@@ -1,6 +1,6 @@
 class WorkoutsController < ApplicationController
   before_action :find_workout, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!#, except: [:index, :show]
 
   def index
     @workouts = Workout.all.order("created_at DESC")
@@ -42,8 +42,7 @@ class WorkoutsController < ApplicationController
 
   def workout_params
     params.require(:workout).permit(:date, :workout, :duration, :location, :mood, :image,
-      exercises_attributes: [:id, :name, :_destroy], 
-      directions_attributes: [:id, :description, :_destroy])
+      exercises_attributes: [:id, :name, :description, :_destroy])
   end
 
   def find_workout
