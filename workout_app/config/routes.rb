@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-
-
-  
-
+    
+    devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }  
     resources :workouts
-    devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+
+#having a lot of issues with this one... i did so many variations with mendel and other advisors, bu
+#but nothing has really changed 
+
+  resources :users do 
+    resources :workouts 
+    end
+ # Also wokrers
+ #users_id/workouts/id
 
  
 

@@ -15,7 +15,7 @@
      <% if user_signed_in? %>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= link_to "New Workout", new_workout_path %>
+            <%= link_to "New Workout", new_workout_path(current_user) %>
           </li>
           <li>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
