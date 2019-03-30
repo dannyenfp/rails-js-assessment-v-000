@@ -23,9 +23,23 @@ class WorkoutsController < ApplicationController
   end
 end
 
-  def show
+# def show
+#   @post = Post.find(params[:id])
+#   respond_to do |format|
+#     format.html { render :show }      # Render post in HTML format
+#     format.json { render json: @post} # Render post in JSON format
+#   end
+# end
 
-  end
+  def show
+    @workout = Work.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }      # Render post in HTML format
+      format.json { render json: @post} # Render post in JSON format
+    end
+   end      
+
+
 
   def new
     @workout = current_user.workouts.build
