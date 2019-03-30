@@ -21,6 +21,7 @@ class WorkoutsController < ApplicationController
     else 
     @workouts = Workout.all.order("created_at DESC")
   end
+
 end
 
 # def show
@@ -32,10 +33,10 @@ end
 # end
 
   def show
-    @workout = Work.find(params[:id])
+    @workout = Workout.find(params[:id])
     respond_to do |format|
       format.html { render :show }      # Render post in HTML format
-      format.json { render json: @post} # Render post in JSON format
+      format.json { render json: @workout} # Render post in JSON format
     end
    end      
 
