@@ -21,16 +21,28 @@ class WorkoutsController < ApplicationController
     else 
     @workouts = Workout.all.order("created_at DESC")
   end
-
+     respond_to do |format|
+       format.html { render :index }      # Render post in HTML format
+       format.json { render json: @workouts} # Render post in JSON format
+   end 
 end
 
-# def show
-#   @post = Post.find(params[:id])
+
+# def index
+#   @opportunity = Opportunity.find(params[:id])
+#   @profiles = @opportunity.applications.user.profile
+
+#     @opportunities = User.find(params[:user_id]).opportunities
+#   @user = current_user
+#   @profile = @user.profile
 #   respond_to do |format|
-#     format.html { render :show }      # Render post in HTML format
-#     format.json { render json: @post} # Render post in JSON format
+#         format.html { render :show }
+#         format.json {render json: @profiles, status: 200}
+
 #   end
 # end
+
+
 
   def show
     @workout = Workout.find(params[:id])
