@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Use jQuery for Rails. 
+gem 'jquery-rails'
+
 # To use Active Model Serializers
 gem 'active_model_serializers'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
