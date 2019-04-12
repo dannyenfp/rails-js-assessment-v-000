@@ -1,3 +1,6 @@
 <% @workouts.each do |workout| %> 
    <%= link_to workout.workout, workout_path(workout) %> <!-- "workouts/:id"-->
-  <% end %> 
+   <%= workout.duration %>
+   <br/>
+
+   <% end %> 

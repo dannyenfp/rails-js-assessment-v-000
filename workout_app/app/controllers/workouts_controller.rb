@@ -61,7 +61,10 @@ end
   def create
     @workout = current_user.workouts.build(workout_params)
     if @workout.save
-      redirect_to user_workout_path(current_user, @workout), notice: "Successfully created new workout"
+      #Now we have to deal with the json of the workout 
+      #redirect_to user_workout_path(current_user, @workout), notice: "Successfully created new workout"
+      #
+      render json: @workout
     else
       render 'new'
     end
